@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "EmailSender.Protos";
+
+package mail;
+
+service Mailer{
+	rpc SendEmail (GetUserNameRequest) returns (EmailStatus);
+}
+
+message GetUserNameRequest{
+	string email=1;
+	string code=2;
+}
+
+message EmailStatus{
+	bool success=1;
+}
